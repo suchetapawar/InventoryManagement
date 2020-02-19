@@ -16,19 +16,19 @@ namespace TestApi.Services
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _products = database.GetCollection<Product>(settings.ProductCollectionCollectionName);
+            _products = database.GetCollection<Product>(settings.ProductCollectionName);
         }
 
         public List<Product> Get() =>
-            _products.Find(book => true).ToList();
+            _products.Find(x => true).ToList();
 
         public Product Get(string id) =>
             _products.Find<Product>(book => book.Id == id).FirstOrDefault();
 
-        public Product Create(Product book)
+        public Product Create(Product prod)
         {
-            _products.InsertOne(book);
-            return book;
+            _products.InsertOne(prod);
+            return prod;
         }
 
         public void Update(string id, Product bookIn) =>
