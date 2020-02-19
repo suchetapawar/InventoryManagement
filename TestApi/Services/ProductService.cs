@@ -20,7 +20,7 @@ namespace TestApi.Services
         }
 
         public List<Product> Get() =>
-            _products.Find(x => true).ToList();
+            _products.Find(x => x.ProductName == "MacBook").ToList();
 
         public Product Get(string id) =>
             _products.Find<Product>(x => x.Id == id).FirstOrDefault();
