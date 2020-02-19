@@ -23,7 +23,7 @@ namespace TestApi.Services
             _products.Find(x => true).ToList();
 
         public Product Get(string id) =>
-            _products.Find<Product>(book => book.Id == id).FirstOrDefault();
+            _products.Find<Product>(x => x.Id == id).FirstOrDefault();
 
         public Product Create(Product prod)
         {
@@ -31,14 +31,14 @@ namespace TestApi.Services
             return prod;
         }
 
-        public void Update(string id, Product bookIn) =>
-            _products.ReplaceOne(book => book.Id == id, bookIn);
+        public void Update(string id, Product x) =>
+            _products.ReplaceOne(prod => prod.Id == id, x);
 
-        public void Remove(Product bookIn) =>
-            _products.DeleteOne(book => book.Id == bookIn.Id);
+        public void Remove(Product x) =>
+            _products.DeleteOne(prod => prod.Id == x.Id);
 
         public void Remove(string id) =>
-            _products.DeleteOne(book => book.Id == id);
+            _products.DeleteOne(prod => prod.Id == id);
 
         public ProductService()
         {
