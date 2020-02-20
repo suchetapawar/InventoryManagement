@@ -12,10 +12,12 @@ namespace TestApi.Models
         public string Id { get; set; }
 
         [BsonElement("Name")]
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
+        [BsonElement("Price")]
         public decimal Price { get; set; }
 
+        [BsonElement("Category")]
         public string Category { get; set; }
 
         
