@@ -39,12 +39,9 @@ namespace TestApi.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
-        }
+        }*/
         [HttpGet]
         public ActionResult<List<Product>> Get() =>
-            _productService.Get();*/
-        [HttpGet]
-        public ActionResult<List<string>> Get() =>
             _productService.Get();
 
         [HttpPost]
